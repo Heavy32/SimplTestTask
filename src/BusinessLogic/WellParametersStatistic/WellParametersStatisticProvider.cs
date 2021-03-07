@@ -4,13 +4,6 @@ using Data;
 
 namespace BusinessLogic
 {
-    public class WellParametersValue
-    {
-        public string Well { get; set; }
-        public string ParameterName { get; set; }
-        public float Value { get; set; }
-    }
-
     public class WellParametersStatisticProvider : IQuery<IEnumerable<WellParametersStatisticValues>>
     {
         private readonly IDataProvider<WellParameter> wellParameterDataProvider;
