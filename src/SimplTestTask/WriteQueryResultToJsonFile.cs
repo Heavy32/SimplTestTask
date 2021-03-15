@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.IO;
 
 namespace SimplTestTask
@@ -7,17 +8,15 @@ namespace SimplTestTask
     {
         public void Save<T>(T result, string fileName)
         {
-            TextWriter writer = null;
+            using StreamWriter writer = new StreamWriter(fileName, false);
             try
             {
                 var contentsToWriteToFile = JsonConvert.SerializeObject(result);
-                writer = new StreamWriter(fileName, false);
                 writer.Write(contentsToWriteToFile);
             }
-            finally
+            catch (Exception ex)
             {
-                if (writer != null)
-                    writer.Close();
+                Console.WriteLine(ex.Message);
             }
         }
     }

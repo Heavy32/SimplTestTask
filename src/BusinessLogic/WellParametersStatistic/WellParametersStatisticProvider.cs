@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Data;
 
@@ -35,10 +36,10 @@ namespace BusinessLogic
                             .Select(parameters => new ParametersValues
                             {
                                 Name = parameters.Key,
-                                Min = parameters.Select(p => p.Value).Min(),
-                                Max = parameters.Select(p => p.Value).Max(),
-                                Average = parameters.Select(p => p.Value).Average(),
-                                Median = parameters.Select(p => p.Value).Median()
+                                Min = Math.Round(parameters.Select(p => p.Value).Min(), 2),
+                                Max = Math.Round(parameters.Select(p => p.Value).Max(), 2),
+                                Average = Math.Round(parameters.Select(p => p.Value).Average()),
+                                Median = Math.Round(parameters.Select(p => p.Value).Median())
                             })
                     });
         }

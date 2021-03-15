@@ -1,0 +1,13 @@
+{
+  "files": {
+    "locations": [
+      {
+        "alias": "inetpub",
+        "path": "%systemdrive%\\inetpub",
+        "claims": [
+          "read"
+        ]
+      }
+    ]
+  }
+}
